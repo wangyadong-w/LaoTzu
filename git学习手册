@@ -2,3 +2,6 @@ Git使用快速入门
 创建初始版本库:git init;Git不关心你是从一个完全空白的目录还是由一个装满文件的目录开始的.这两种情况下,将目录转换到Git版本库的过程是一样的.
 将文件添加到版本库中:添加版本库分两步;A.git add filename(添加到staged暂存中);B.git commit -m "此次添加的必要说明"(把暂存器staged中的文件添加到版本库中);
 查看当前Git的状态:git status;
+配置提交作者:git config user.name "username";git config user.email "useremail";
+再次提交时如果文件已经到版本库里,我们可以直接使用git commit -m "提交必要信息"
+查看版本库的提交方式:A.git log 这个命令会查看版本库一系列单独提交的历史;git show +commitID 会显示特定(commitID)提交的详细信息(如果没有指定commitID就会显示最近一次提交的详细信息);git show-branch 提供当前开发分支简洁单行摘要(添加长参数--more=10,表示10个版本的摘要); 
