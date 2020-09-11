@@ -5,3 +5,8 @@ Git使用快速入门
 配置提交作者:git config user.name "username";git config user.email "useremail";
 再次提交时如果文件已经到版本库里,我们可以直接使用git commit -m "提交必要信息"
 查看版本库的提交方式:A.git log 这个命令会查看版本库一系列单独提交的历史;git show +commitID 会显示特定(commitID)提交的详细信息(如果没有指定commitID就会显示最近一次提交的详细信息);git show-branch 提供当前开发分支简洁单行摘要(添加长参数--more=10,表示10个版本的摘要); 
+查看提交差异:git diff 全commitID 全commitID:
+版本库内删除文件:git rm filename        git commit -m "删除文件必要说明";版本库修改文件名字:git MV oldfilename newfiilename     git commit -m "改名必要说明";
+创建版本库副本: 创建一个存放版本库的目录,git clone 被克隆版本目录 要克隆目录;这两个Git版本库现在包含相同的内容 文件和目录,但还是有些细微差别,下面两个命令查看不同:ls -lsa filename filename diff -r filename  filename;
+Git 配置文件:Git的配置文件后缀.ini  Git支持不同层次的配置文件,它们的优先级递减顺序是:.git/config    ~/.gitconfig    /etc/gitconfig  例如:git config --global user.name 就会修改~/.gitconfig文件,省略--global选项会配置 特定版本库user.name属性;   git config -l 列出当前库配置文件所有设置值;     git config --unset +配置选项 (移除配置命令)例如:git config --unset --global user.email;
+配置Git命令别名方式:git config --global alias.show-graph 'log --graph --abbrev-commit --pretty=oneline' 在这个例子中,我创建show-graph别名,并能够被我创建的任意版本库使用.现在,当我使用git show-graph命令时,就如同我已经输入了带有所有选项的长长的git log 命令一样.
